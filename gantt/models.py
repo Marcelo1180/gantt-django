@@ -12,8 +12,9 @@ class Gantt_links(models.Model):
 class Gantt_tasks(models.Model):
     text = models.CharField(max_length=255)
     start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
     duration = models.IntegerField()
-    progress = models.FloatField()
-    sortorder = models.IntegerField()
+    progress = models.FloatField(blank=True, null=True)
+    sortorder = models.IntegerField(blank=True, null=True)
     parent = models.IntegerField()
 

@@ -3,8 +3,8 @@
 <html lang="es">
 </head>
 	<!--<script type="text/javascript" src="../common/testdata.js"></script>-->
-    <link href="{% static 'gantt/codebase/dhtmlxgantt.css' %}" rel="stylesheet">
-    <script type="text/javascript" src="{% static 'gantt/codebase/dhtmlxgantt.js' %}"></script>
+    <link  href="{% static 'gantt/codebase/dhtmlxgantt.css' %}" rel="stylesheet">
+    <script src="{% static 'gantt/codebase/dhtmlxgantt.js' %}" type="text/javascript"></script>
 	<style type="text/css">
 		html, body{ height:100%; padding:0px; margin:0px; overflow: hidden;}
 	</style>
@@ -33,12 +33,13 @@
 //        dp.init("gantt_here");
 //        dp.setTransactionMode("REST");
 
-//        gantt.config.xml_date = "%Y-%m-%d %H:%i:%s";
-
+        gantt.config.xml_date = "%Y-%m-%d %H:%i:%s";
 		gantt.init("gantt_here");
         gantt.load("../common/connector_enddate.php");
-        var dp = new gantt.dataProcessor("http://127.0.0.1:8001/api/v1/");
+//        var dp = new gantt.dataProcessor("/api/v1/");
+        var dp = new gantt.dataProcessor("../common/connector_enddate.php");
         dp.init(gantt);
-        dp.setTransactionMode("REST");
+//        dp.setTransactionMode("REST");
+//		dp.setTransactionMode("POST", false);
 	</script>
 </body>
